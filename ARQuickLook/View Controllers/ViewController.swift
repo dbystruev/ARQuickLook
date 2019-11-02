@@ -64,7 +64,6 @@ extension ViewController: QLPreviewControllerDataSource {
     
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let indexPath = tableView.indexPathForSelectedRow ?? IndexPath()
-        print(#line, #function, indexPath.row)
         let usdzModel = usdzModels[indexPath.row]
         return usdzModel.url as QLPreviewItem
     }
