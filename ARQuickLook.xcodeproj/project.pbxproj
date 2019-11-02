@@ -13,6 +13,7 @@
 		6916C00C236E04F200645DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6916C00A236E04F200645DB2 /* Main.storyboard */; };
 		6916C00E236E04F700645DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6916C00D236E04F700645DB2 /* Assets.xcassets */; };
 		6916C011236E04F700645DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6916C00F236E04F700645DB2 /* LaunchScreen.storyboard */; };
+		6916C01D236E094900645DB2 /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6916C01C236E094900645DB2 /* Assets.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6916C00D236E04F700645DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6916C010236E04F700645DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6916C012236E04F700645DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6916C01C236E094900645DB2 /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		6916C003236E04F200645DB2 /* ARQuickLook */ = {
 			isa = PBXGroup;
 			children = (
-				6916C004236E04F200645DB2 /* AppDelegate.swift */,
-				6916C006236E04F200645DB2 /* SceneDelegate.swift */,
-				6916C008236E04F200645DB2 /* ViewController.swift */,
-				6916C00A236E04F200645DB2 /* Main.storyboard */,
-				6916C00D236E04F700645DB2 /* Assets.xcassets */,
-				6916C00F236E04F700645DB2 /* LaunchScreen.storyboard */,
-				6916C012236E04F700645DB2 /* Info.plist */,
+				6916C018236E054100645DB2 /* App */,
+				6916C019236E073100645DB2 /* Resources */,
+				6916C01A236E074300645DB2 /* Storyboards */,
+				6916C01B236E075C00645DB2 /* View Controllers */,
 			);
 			path = ARQuickLook;
+			sourceTree = "<group>";
+		};
+		6916C018236E054100645DB2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6916C004236E04F200645DB2 /* AppDelegate.swift */,
+				6916C006236E04F200645DB2 /* SceneDelegate.swift */,
+				6916C012236E04F700645DB2 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6916C019236E073100645DB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6916C00D236E04F700645DB2 /* Assets.xcassets */,
+				6916C01C236E094900645DB2 /* Assets.scnassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6916C01A236E074300645DB2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6916C00F236E04F700645DB2 /* LaunchScreen.storyboard */,
+				6916C00A236E04F200645DB2 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6916C01B236E075C00645DB2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6916C008236E04F200645DB2 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6916C01D236E094900645DB2 /* Assets.scnassets in Resources */,
 				6916C011236E04F700645DB2 /* LaunchScreen.storyboard in Resources */,
 				6916C00E236E04F700645DB2 /* Assets.xcassets in Resources */,
 				6916C00C236E04F200645DB2 /* Main.storyboard in Resources */,
@@ -286,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J39KF9DMS;
-				INFOPLIST_FILE = ARQuickLook/Info.plist;
+				INFOPLIST_FILE = ARQuickLook/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J39KF9DMS;
-				INFOPLIST_FILE = ARQuickLook/Info.plist;
+				INFOPLIST_FILE = ARQuickLook/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
