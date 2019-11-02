@@ -6,6 +6,7 @@
 //  Copyright © 2019 Denis Bystruev. All rights reserved.
 //
 
+import QuickLook
 import UIKit
 
 class ViewController: UIViewController {
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         // Update tableView when images are updated
         NotificationCenter.default.addObserver(
@@ -51,13 +53,30 @@ class ViewController: UIViewController {
         )
         
         // Fill USDZ Models array with actual models data
-        usdzModelNames.forEach { name in
-            let fullName = "Assets.scnassets/\(name)"
-            usdzModels.append(USDZModel(named: fullName))
-        }
-        usdzModels.sort()
+        usdzModels = usdzModelNames.compactMap({ USDZModel(named: $0) }).sorted()
     }
     
+}
+
+// MARK: - QLPreviewControllerDataSource
+extension ViewController: QLPreviewControllerDataSource {
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int { 1 }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        let indexPath = tableView.indexPathForSelectedRow ?? IndexPath()
+        print(#line, #function, indexPath.row)
+        let usdzModel = usdzModels[indexPath.row]
+        return usdzModel.url as QLPreviewItem
+    }
+}
+
+// MARK: - QLPreviewControllerDelegate
+extension ViewController: QLPreviewControllerDelegate {
+    func previewController(_ controller: QLPreviewController, transitionViewFor item: QLPreviewItem) -> UIView? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        guard let cell = tableView.cellForRow(at: indexPath) as? USDZCell else { return nil }
+        return cell.previewImageView
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -73,5 +92,19 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usdzModels.count
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let previewController = QLPreviewController()
+        previewController.dataSource = self
+        previewController.delegate = self
+        
+        // Present quick look modally
+        present(previewController, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

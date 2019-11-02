@@ -15,11 +15,16 @@ class USDZModel {
     
     // MARK: - Stored Properties
     let name: String
+    let url: URL
+    
     var image: UIImage?
     
     // MARK: - Initializers
-    init(named path: String) {
+    init?(named path: String) {
+        guard let url = Bundle.main.url(forResource: "Assets.scnassets/\(path)", withExtension: nil) else { return nil }
+        
         name = NSString(string: path).lastPathComponent
+        self.url = url
         
         // try to find an image with the same name
         let imageName = String(name.dropLast(5))
@@ -27,8 +32,6 @@ class USDZModel {
             self.image = image
             return
         }
-        
-        guard let url = Bundle.main.url(forResource: path, withExtension: nil) else { return }
         
         let size = CGSize(width: 96, height: 128)
         let scale = UIScreen.main.scale
