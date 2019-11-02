@@ -14,21 +14,23 @@ class USDZModel {
     static let imageUpdatedNotification = Notification.Name("USDZModel.imageUpdated")
     
     // MARK: - Stored Properties
-    let name: String
+    let filename: String
     let url: URL
     
     var image: UIImage?
+    
+    // MARK: - Computed Properties
+    var name: String { filename.undotted.spaced.capitalized }
     
     // MARK: - Initializers
     init?(named path: String) {
         guard let url = Bundle.main.url(forResource: "Assets.scnassets/\(path)", withExtension: nil) else { return nil }
         
-        name = NSString(string: path).lastPathComponent
+        filename = NSString(string: path).lastPathComponent
         self.url = url
         
         // try to find an image with the same name
-        let imageName = String(name.dropLast(5))
-        if let image = UIImage(named: imageName) {
+        if let image = UIImage(named: filename.undotted) {
             self.image = image
             return
         }
