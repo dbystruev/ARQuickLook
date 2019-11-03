@@ -20,16 +20,16 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="USDZCell" id="UPx-K6-aPJ" customClass="USDZCell" customModule="ARQuickLook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="163.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="366.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UPx-K6-aPJ" id="5G9-Of-KtI">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="163.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="366.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WTx-zg-wxS">
-                                                    <rect key="frame" x="20" y="56.5" width="334" height="96"/>
+                                                    <rect key="frame" x="37.5" y="56.5" width="299" height="299"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="96" id="kLA-X2-G7d"/>
+                                                        <constraint firstAttribute="width" secondItem="WTx-zg-wxS" secondAttribute="height" id="Uzi-qC-RtP"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1K-E7-dSc">
@@ -42,10 +42,10 @@
                                             <constraints>
                                                 <constraint firstItem="e1K-E7-dSc" firstAttribute="top" secondItem="5G9-Of-KtI" secondAttribute="topMargin" constant="16" id="3dh-WL-Aem"/>
                                                 <constraint firstItem="WTx-zg-wxS" firstAttribute="top" secondItem="e1K-E7-dSc" secondAttribute="bottom" constant="8" id="ARR-ni-VSc"/>
-                                                <constraint firstItem="WTx-zg-wxS" firstAttribute="leading" secondItem="5G9-Of-KtI" secondAttribute="leadingMargin" id="FDt-yG-Hbo"/>
+                                                <constraint firstItem="WTx-zg-wxS" firstAttribute="width" secondItem="5G9-Of-KtI" secondAttribute="width" multiplier="0.8" id="Arl-aQ-Jwx" userLabel="Preview Image View.width = 0.8 × width"/>
                                                 <constraint firstItem="e1K-E7-dSc" firstAttribute="leading" secondItem="5G9-Of-KtI" secondAttribute="leadingMargin" id="QjM-Pa-tKs"/>
+                                                <constraint firstItem="WTx-zg-wxS" firstAttribute="centerX" secondItem="5G9-Of-KtI" secondAttribute="centerX" id="TGF-B5-npP"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="e1K-E7-dSc" secondAttribute="trailing" id="Xrz-2E-Xcb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="WTx-zg-wxS" secondAttribute="trailing" id="bCE-2g-p2Y"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="WTx-zg-wxS" secondAttribute="bottom" id="wF3-Xl-sWr"/>
                                             </constraints>
                                         </tableViewCellContentView>

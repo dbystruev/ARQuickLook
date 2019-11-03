@@ -14,7 +14,7 @@ class USDZModel {
     static let imageUpdatedNotification = Notification.Name("USDZModel.imageUpdated")
     
     // MARK: - Stored Properties
-    let filename: String
+    private let filename: String
     let url: URL
     
     var image: UIImage?
