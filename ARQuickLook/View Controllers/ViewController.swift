@@ -6,6 +6,7 @@
 //  Copyright © 2019 Denis Bystruev. All rights reserved.
 //
 
+import ARKit
 import QuickLook
 import UIKit
 
@@ -65,7 +66,8 @@ extension ViewController: QLPreviewControllerDataSource {
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let indexPath = tableView.indexPathForSelectedRow ?? IndexPath()
         let usdzModel = usdzModels[indexPath.row]
-        return usdzModel.url as QLPreviewItem
+        let previewItem = ARQuickLookPreviewItem(fileAt: usdzModel.url)
+        return previewItem
     }
 }
 

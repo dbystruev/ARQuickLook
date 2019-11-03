@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690B655E236F042800CB5F48 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 690B655D236F042800CB5F48 /* 1.png */; };
 		6916C005236E04F200645DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6916C004236E04F200645DB2 /* AppDelegate.swift */; };
 		6916C007236E04F200645DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6916C006236E04F200645DB2 /* SceneDelegate.swift */; };
 		6916C009236E04F200645DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6916C008236E04F200645DB2 /* ViewController.swift */; };
@@ -14,7 +15,6 @@
 		6916C00E236E04F700645DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6916C00D236E04F700645DB2 /* Assets.xcassets */; };
 		6916C011236E04F700645DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6916C00F236E04F700645DB2 /* LaunchScreen.storyboard */; };
 		6916C01D236E094900645DB2 /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6916C01C236E094900645DB2 /* Assets.scnassets */; };
-		69200114236E5304000E6BB9 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 69200113236E5304000E6BB9 /* 1.png */; };
 		6963733E236E11C50038C115 /* USDZModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963733D236E11C50038C115 /* USDZModel.swift */; };
 		69EA01AD236E22BC00540F5C /* CellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA01AC236E22BC00540F5C /* CellManager.swift */; };
 		69EA01B0236E230200540F5C /* USDZCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA01AF236E230200540F5C /* USDZCell.swift */; };
@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690B655D236F042800CB5F48 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		6916C001236E04F200645DB2 /* ARQuickLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARQuickLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6916C004236E04F200645DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6916C006236E04F200645DB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		6916C010236E04F700645DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6916C012236E04F700645DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6916C01C236E094900645DB2 /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
-		69200113236E5304000E6BB9 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		6963733D236E11C50038C115 /* USDZModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZModel.swift; sourceTree = "<group>"; };
 		69EA01AC236E22BC00540F5C /* CellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManager.swift; sourceTree = "<group>"; };
 		69EA01AF236E230200540F5C /* USDZCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZCell.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		69200112236E52C8000E6BB9 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				69200113236E5304000E6BB9 /* 1.png */,
+				690B655D236F042800CB5F48 /* 1.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				6916C011236E04F700645DB2 /* LaunchScreen.storyboard in Resources */,
 				6916C00E236E04F700645DB2 /* Assets.xcassets in Resources */,
 				6916C00C236E04F200645DB2 /* Main.storyboard in Resources */,
-				69200114236E5304000E6BB9 /* 1.png in Resources */,
+				690B655E236F042800CB5F48 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
