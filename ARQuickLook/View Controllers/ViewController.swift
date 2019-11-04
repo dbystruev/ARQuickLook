@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +97,11 @@ extension ViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Dim the table view
-        UIView.animate(withDuration: 2) {
-            tableView.alpha = 0.2
+        // Rotate the cell
+        if let cell = tableView.cellForRow(at: indexPath) as? USDZCell {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
+                cell.previewImageView.transform3D = CATransform3DMakeRotation(.pi, 0, 1, 0)
+            })
         }
         
         // Prepare the quick look controller
@@ -109,7 +111,6 @@ extension ViewController: UITableViewDelegate {
         
         // Present quick look modally
         present(previewController, animated: true) {
-            tableView.alpha = 1
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
