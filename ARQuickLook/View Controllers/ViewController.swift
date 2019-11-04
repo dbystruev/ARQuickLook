@@ -98,11 +98,10 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Rotate the cell
-        if let cell = tableView.cellForRow(at: indexPath) as? USDZCell {
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
-                cell.previewImageView.transform3D = CATransform3DMakeRotation(.pi, 0, 1, 0)
-            })
-        }
+        let cell = tableView.cellForRow(at: indexPath) as? USDZCell
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
+            cell?.previewImageView.transform3D = CATransform3DMakeRotation(.pi, 0, 1, 0)
+        })
         
         // Prepare the quick look controller
         let previewController = QLPreviewController()
@@ -111,6 +110,10 @@ extension ViewController: UITableViewDelegate {
         
         // Present quick look modally
         present(previewController, animated: true) {
+            // Cancel cell rotation
+            UIView.modifyAnimations(withRepeatCount: 0, autoreverses: false) {
+                cell?.previewImageView.transform3D = CATransform3DIdentity
+            }
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
