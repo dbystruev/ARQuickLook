@@ -91,21 +91,26 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usdzModels.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { usdzModels.count }
 }
 
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Dim the table view
+        UIView.animate(withDuration: 2) {
+            tableView.alpha = 0.2
+        }
+        
+        // Prepare the quick look controller
         let previewController = QLPreviewController()
         previewController.dataSource = self
         previewController.delegate = self
         
         // Present quick look modally
-        present(previewController, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+        present(previewController, animated: true) {
+            tableView.alpha = 1
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
