@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
         
