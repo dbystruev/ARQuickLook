@@ -66,8 +66,12 @@ extension ViewController: QLPreviewControllerDataSource {
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let indexPath = tableView.indexPathForSelectedRow ?? IndexPath()
         let usdzModel = usdzModels[indexPath.row]
-        let previewItem = ARQuickLookPreviewItem(fileAt: usdzModel.url)
-        return previewItem
+        if #available(iOS 13.0, *) {
+            return ARQuickLookPreviewItem(fileAt: usdzModel.url)
+        } else {
+            let item = usdzModel.url as QLPreviewItem
+            return item
+        }
     }
 }
 
@@ -99,9 +103,12 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Rotate the cell
         let cell = tableView.cellForRow(at: indexPath) as? USDZCell
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
-            cell?.previewImageView.transform3D = CATransform3DMakeRotation(.pi, 0, 1, 0)
-        })
+        
+        if #available(iOS 13.0, *) {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
+                cell?.previewImageView.transform3D = CATransform3DMakeRotation(.pi, 0, 1, 0)
+            })
+        }
         
         // Prepare the quick look controller
         let previewController = QLPreviewController()
@@ -111,8 +118,10 @@ extension ViewController: UITableViewDelegate {
         // Present quick look modally
         present(previewController, animated: true) {
             // Cancel cell rotation
-            UIView.modifyAnimations(withRepeatCount: 0, autoreverses: false) {
-                cell?.previewImageView.transform3D = CATransform3DIdentity
+            if #available(iOS 13.0, *) {
+                UIView.modifyAnimations(withRepeatCount: 0, autoreverses: false) {
+                    cell?.previewImageView.transform3D = CATransform3DIdentity
+                }
             }
             tableView.deselectRow(at: indexPath, animated: true)
         }

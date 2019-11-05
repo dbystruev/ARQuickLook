@@ -39,6 +39,8 @@ class USDZModel {
         let scale = UIScreen.main.scale
         
         // create the thumbnail request
+        guard #available(iOS 13.0, *) else { return }
+        
         let request = QLThumbnailGenerator.Request(
             fileAt: url,
             size: size,
