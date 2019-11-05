@@ -64,7 +64,7 @@ extension ViewController: QLPreviewControllerDataSource {
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int { 1 }
     
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-        let indexPath = tableView.indexPathForSelectedRow ?? IndexPath()
+        let indexPath = tableView.indexPathForSelectedRow ?? tableView.indexPathsForVisibleRows?.first ?? IndexPath()
         let usdzModel = usdzModels[indexPath.row]
         if #available(iOS 13.0, *) {
             return ARQuickLookPreviewItem(fileAt: usdzModel.url)
